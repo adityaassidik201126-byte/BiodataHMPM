@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata HMPM NURUL HUDA - Masjid Jami' Nurul Huda</title>
+    
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --primary-color: #00897b; /* Hijau Mint Tua */
+            --secondary-color: #00bcd4; /* Biru Cyan */
+            --accent-color: #ff9800; /* Oranye Terang untuk Aksen */
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --bg-color-start: #e1f5fe; /* Biru Muda Pucat */
+            --bg-color-end: #f1f8e9; /* Hijau Muda Pucat */
+            --card-bg: #ffffff;
+            --border-color: #b2dfdb;
+            /* FONT DIOPTIMALKAN */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
+            background-attachment: fixed;
+            /* Menyembunyikan konten awal agar animasi bisa muncul */
+            opacity: 0;
+            animation: fadeInPage 0.5s ease-out forwards;
+        }
+
+        /* ANIMASI BARU */
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInPage {
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+            border-radius: 20px; 
+            border: 2px solid var(--primary-color);
+        }
+
+        /* HEADER STYLE */
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 5px solid var(--primary-color); 
+            margin-bottom: 30px;
+            background-color: #e0f2f1;
+            border-radius: 15px 15px 0 0;
+            padding-top: 20px;
+            /* Animasi untuk Header */
+            animation: slideUpFade 0.8s ease-out 0.2s forwards;
+            opacity: 0; /* Mulai tersembunyi */
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 3px; 
+            font-weight: 900; 
+        }
+
+        .header h2 {
+            color: var(--secondary-color); 
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            background: linear-gradient(to right, #ffffff, #f9f9f9); 
+            /* Animasi untuk Kartu Profil */
+            animation: slideUpFade 0.8s ease-out 0.5s forwards;
+            opacity: 0; /* Mulai tersembunyi */
+        }
+
+        .profile-img img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%; 
+            border: 6px solid var(--accent-color); 
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); 
+        }
+
+        .info-table {
+            flex-grow: 1;
+        }
+
+        .info-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .info-table th, .info-table td {
+            padding: 12px 0;
+            text-align: left;
+            border-bottom: 1px dashed var(--border-color); 
+        }
+
+        .info-table th {
+            width: 35%;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .info-table td {
+            font-weight: 500;
+        }
+
+        .info-table a {
+            color: var(--secondary-color); 
+            text-decoration: none;
+            font-weight: 600;
+            display: block; 
+        }
+        
+        .info-table a:hover {
+            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        /* SECTION STYLES */
+        section h3 {
+            color: var(--text-light); 
+            background: linear-gradient(90deg, var(--primary-color) 0%, #38a54c 100%); 
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .kepengurusan {
+            list-style: none;
+            padding: 0;
+        }
+
+        .kepengurusan li {
+            background-color: #f1f8e9;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 5px solid var(--accent-color); 
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .kepengurusan li:hover {
+            transform: translateX(8px);
+            background-color: #e0f7fa; 
+        }
+
+        /* Style untuk Tabel Organisasi Santri */
+        .santri-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0 5px; /* Spasi antar baris */
+        }
+
+        .santri-table th, .santri-table td {
+            padding: 10px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+
+        .santri-table th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 700;
+            width: 40%;
+        }
+
+        .santri-table td {
+            background-color: #f9f9f9;
+        }
+
+        /* Membuat sudut tabel membulat */
+        .santri-table tr:first-child th:first-child { border-top-left-radius: 8px; }
+        .santri-table tr:first-child th:last-child { border-top-right-radius: 8px; }
+        .santri-table tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+        .santri-table tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+
+        .visi-misi {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .visi, .misi {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .visi:hover, .misi:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .visi {
+            background-color: #e0f7fa; 
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .misi {
+            background-color: #f3e5f5; 
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .visi h4, .misi h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 3px solid var(--secondary-color); 
+            padding-bottom: 5px;
+            font-size: 1.3em;
+        }
+
+        .misi ul {
+            padding-left: 20px;
+            list-style-type: '🌟 '; 
+        }
+
+        /* GALERI FOTO BARU */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            background-color: #ffffff; /* Latar belakang putih agar foto menonjol */
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>BIODATA</h1>
+            <h2>HIMPUNAN PENGAJIAN MALAM (HMPM)<br> Masjid Jami' Nurul Huda</h2>
+        </header>
+
+        <section class="profile-card">
+            <div class="profile-img">
+                <img src="foto_hmpm.jpg" alt="Foto HMPM NURUL HUDA">
+            </div>
+            
+            <div class="info-table">
+                <table>
+                    <tr>
+                        <th>Nama Organisasi</th>
+                        <td>**HMPM NURUL HUDA**</td>
+                    </tr>
+                    <tr>
+                        <th>Kepanjangan</th>
+                        <td>**Himpunan Pengajian Malam**</td>
+                    </tr>
+                    <tr>
+                        <th>Tahun Berdiri</th>
+                        <td>**2013**</td>
+                    </tr>
+                    <tr>
+                        <th>Lokasi Utama</th>
+                        <td>Dsn. Kedung Jarian, Desa Sidaharja, Kec. Lakbok, Kab.Ciamis, Prov. Jawa Barat</td>
+                    </tr>
+                    <tr>
+                        <th>Akun Sosial Media</th>
+                        <td>
+                            <a href="https://www.instagram.com/santri_hmpmnurulhuda?igsh=eGJ2MTFpMXl4aDl1" target="_blank">Instagram</a>
+                            <a href="http://www.youtube.com/@hmpmtv2723" target="_blank">YouTube</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="struktur">
+            <h3>Struktur Kepengurusan Inti</h3>
+            <ul class="kepengurusan">
+                <li>**Pengurus Harian:** Ust. Rian Fathurrohman</li>
+                <li>**Pengurus Harian:** Nisa Sara Sholihah</li>
+                <li>**Pengurus Harian:** Nasirotun Nisa</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Organisasi Santri (Putra)</h3>
+            
+            <table class="santri-table">
+                <thead>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama Santri</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rois</td>
+                        <td>Aditya Nararya As'sidik</td>
+                    </tr>
+                    <tr>
+                        <td>Keamanan</td>
+                        <td>Muhammad Fabian Qasthalani</td>
+                    </tr>
+                    <tr>
+                        <td>Keamanan</td>
+                        <td>Exsel Putra Pratama</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">Organisasi Santriwati (Putri)</h3>
+            
+            <table class="santri-table">
+                <thead>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama Santriwati</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Roisah</td>
+                        <td>Anis Nuraini</td>
+                    </tr>
+                    <tr>
+                        <td>Keamanan</td>
+                        <td>Alya Nur Aini</td>
+                    </tr>
+                    <tr>
+                        <td>Keamanan</td>
+                        <td>Adjeng Afika</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Shifa Amaliah</td>
+                    </tr>
+                    <tr>
+                        <td>Seksi Pendidikan</td>
+                        <td>Yunita Dendra</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="visi-misi">
+            <h3>Visi dan Misi</h3>
+            <div class="visi">
+                <h4>Visi</h4>
+                <p>[Nanti diisi Visi Organisasi]</p>
+            </div>
+            <div class="misi">
+                <h4>Misi</h4>
+                <ul>
+                    <li>[Nanti diisi Misi 1]</li>
+                    <li>[Nanti diisi Misi 2]</li>
+                    <li>[Nanti diisi Misi 3]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="galeri-section">
+            <h3 style="margin-top: 40px;">Galeri HMPM NURUL HUDA</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="foto_kegiatan_1.jpg" alt="Kegiatan HMPM 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="foto_kegiatan_2.jpg" alt="Kegiatan HMPM 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="foto_kegiatan_3.jpg" alt="Kegiatan HMPM 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="foto_kegiatan_4.jpg" alt="Kegiatan HMPM 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="foto_kegiatan_5.jpg" alt="Kegiatan HMPM 5">
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 HMPM NURUL HUDA. Dibuat dengan HTML & CSS.</p>
+        </footer>
+    </div>
+</body>
+</html>
